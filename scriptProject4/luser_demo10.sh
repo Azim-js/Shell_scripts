@@ -11,14 +11,28 @@
 #     echo "This is a message form the paramter s ${MESSAGE}"
 # }
 
+# log() {
+#     local MESSAGE="${@}"
+#     if [[ "${VERBOSE}" == 'true' ]]
+#     then
+#         echo "${MESSAGE}"
+#     fi    
+# }
+
 log() {
+    local VERBOSE="${1}"
+    shift
     local MESSAGE="${@}"
     if [[ "${VERBOSE}" == 'true' ]]
     then
         echo "${MESSAGE}"
-    fi    
+    fi
 }
 
-log ": Greetings"
-VERBOSE='true'
-log ": This is Fun !"
+# log ": Greetings"
+# VERBOSE='true'
+# log ": This is Fun !"
+
+VERBOSITY='true'
+log "${VERBOSITY}" "Hello!!"
+log "${VERBOSITY}" "This is Fun!"
