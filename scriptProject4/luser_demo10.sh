@@ -2,8 +2,15 @@
 
 # DRY (Dont Repeat Yourself)
 
+# log () {
+#     echo "This is a function block"
+# }
+
 log () {
-    echo "This is a function block"
+    local MESSAGE="${@}"
+    echo "This is a message form the paramter s ${MESSAGE}"
 }
 
-log 
+log ": Greetings"
+
+log ": This is Fun !"
