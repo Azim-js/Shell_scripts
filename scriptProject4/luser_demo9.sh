@@ -33,3 +33,15 @@ case "${1}" in
         exit 1
         ;;
 esac  
+
+# OR with no spacing syntax
+
+# case "${1}" in
+#     start) echo "starting" ;;
+#     stop) echo "stopping" ;;
+#     status | --status | -status) echo "Status" ;;
+#     *)
+#         echo "Please supply a valid option" 
+#         exit 1
+# esac
+
