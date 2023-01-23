@@ -1,0 +1,10 @@
+type -a bc 
+
+bc -- a basic calculator function 
+
+OR
+
+awk 'BEGIN {print 6/4}'
+
+
+
