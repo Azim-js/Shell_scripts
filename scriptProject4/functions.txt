@@ -6,5 +6,24 @@ OR
 
 awk 'BEGIN {print 6/4}'
 
+# user delete , Disabling linux Accounts
 
+userdel
 
+which userdel
+
+locate userdel
+
+locate userdel | grep bin
+
+# Find Command 
+
+find /path/ -name filename 
+
+example :- 
+
+find /usr/bin/ -name userdel
+
+# To run the recent the command 
+
+!! (BANG BANG)
