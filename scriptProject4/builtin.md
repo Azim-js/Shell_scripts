@@ -75,4 +75,29 @@ man tar
 
 !$ (also called Vent designator)
 
+# Disabling Account
+
+man chage (change the age of expiration of the linux user)
+
+```-E expiredate EXPIRE_DATE```
+
+```sudo chage -E 0 username``` (lock the account)
+
+```sudo change -E -1 username``` (unlock the account)
+
+# Lock the account using the passwd command 
+
+```sudo passwd -l username```
+
+```sudo passwd -u username```
+
+# Lock the account using usermod shells
+
+cat /etc/shells
+
+- nologin
+
+```sudo usermod -s /sbin/nologin username```
+
+
 
