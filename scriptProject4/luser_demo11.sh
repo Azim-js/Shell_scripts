@@ -44,6 +44,9 @@ do
         esac
 done
 
+# Inspect OPTIND
+echo "OPTIND: ${OPTIND}"
+
 # Remove the options while leaving the remaining arguments.
 shift "$(( OPTIND -1 ))"
 
@@ -70,5 +73,13 @@ log "Here is the password: "
 
 # Display the password 
 echo "${PASSWORD}"
+
+# Display the arguments
+
+echo "Number of args: ${#}"
+echo "All args: ${@}"
+echo "First arg: ${1}"
+echo "Second arg: ${2}"
+echo "Third arg: ${3}"
 
 exit 0
