@@ -27,3 +27,14 @@ find /usr/bin/ -name userdel
 # To run the recent the command 
 
 !! (BANG BANG)
+
+# man userdel
+
+tail /etc/passwd
+
+id -u username
+
+# The User details are as follows 
+
+vi /etc/login.defs
+
