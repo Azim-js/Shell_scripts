@@ -62,3 +62,20 @@ To get the n characters of all the lines
 7.```awk -F ':' '{print $NF}' /etc/passwd```(Normalise the data)
 8.```awk -F ':' '{print $(NF -1)}' /etc/passwd``` 
 9.```awk '{print $1,$2}' irregular_lines```
+
+
+# netstat command with the pattern matching (n - number , t - TCP , u - UDP , l - listening port ) 
+
+1.```netstat -nutl | grep -v "Active" | grep -v "^Proto"```
+2.```netstat -nutl | grep -v "^Active | ^Proto"```
+3.```netstat -nutl | grep ':'```
+4.```netstat -nutl | grep ':' | cut -d ':' -f 2```
+5.```netstat -nutl | grep ':' | awk '{print $4}'```
+6.```netstat -nutl | grep ':' | awk '{print $4} | awk -F ':' '{print $NF}'```
+7.```netstat -4nutl | grep ':' | awk '{print $4}' | cut -d ':' -f 2```
+8.```netstat -4nutl | grep ':' | awk '{print $4}' | awk -F '{print $NF}'```
+
+To check which program is running the port
+
+1. ```sudo netstat -nutlp | grep 22```
+
