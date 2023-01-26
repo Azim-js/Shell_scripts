@@ -79,3 +79,40 @@ To check which program is running the port
 
 1. ```sudo netstat -nutlp | grep 22```
 
+
+# Sort and and Uniq Command 
+
+1.```sort /etc/passwd```
+2.```sort -r /etc/passwd ``` (-r reverse)
+3.```cut -d ':' -f 3 /etc/passwd | sort ``` (not numerically)
+4.```cut -d ':' -f 3 /etc/passwd | sort -n ``` (-n numerically)
+5.```cut -d ':' -f 3 /etc/passwd | sort -nr```
+
+Disk usage - ```$ du```
+
+1.```sudo du /var```
+2.```sudo du /var | sort -n```
+3.```sudo du -h /var | sort -n``` (-h human redable)
+4.```sudo du -h /var | sort -h```
+5.```netstat -nutl | grep ':' | awk '{print $4}'```
+6.```netstat -nutl | grep ':' | awk '{print $4}' | awk -F ':' '{print $NF}' | sort -n```
+
+# Uniq command 
+
+1.```netstat -nutl | grep ':' | awk '{print $4}' | awk -F ':' '{print $NF}' | sort -n | uniq -c```
+
+2. How many Syslogs
+
+1.```sudo cat /var/log/messages```
+2.```sudo cat /var/log/messages | awk '{print $5}' | uniq -c | sort -n```
+
+# WC (word count )
+
+1.```wc /etc/passwd```
+2.```wc -w /etc/passwd``` (-w word)
+3.```wc -c /etc/passwd``` (-c charcter)
+4.```wc -l /etc/passwd``` (-l lines)
+5.```grep bash /etc/passwd```
+6.```grep bash /etc/passwd | wc -l```
+7.```grep -c bash /etc/passwd```
+8.```grep /etc/passwd | sort -t ':' -k 3 -n``` 
