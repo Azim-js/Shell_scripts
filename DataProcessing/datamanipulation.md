@@ -49,3 +49,16 @@ To get the n characters of all the lines
 2.```grep -v '^first,last$' people.csv | cut -d ',' -f 1 ```
 3.```cut -d ',' -f1 people.csv | grep -u '^first$'```
 
+4.```cut -d ':' -f 2 people.dat``` (cut cannot perform a string manipulation filter)
+
+# AWK command (it wont consider any whitespaces)
+
+1.```awk -F 'DATA:' '{print $2}' people.dat``` (-F is for field seperation , {action}, filename)
+2.```awk -F ':' '{print $1,$3}' /etc/passwd```
+3.```awk -F ':' -v OFS = ',' '{print $1,$3}' /etc/passwd``` (OFS for output delimiter)
+4.```awk -F ':' '{print "COL1:" $1,"COL3:" $3}' /etc/passwd```
+5.```awk -F ':' '{print $3,$1}' /etc/passwd```
+6.```awk -F ':' '{print "UID: " $3 "; LOGIN: " $1}' /etc/passwd```
+7.```awk -F ':' '{print $NF}' /etc/passwd```(Normalise the data)
+8.```awk -F ':' '{print $(NF -1)}' /etc/passwd``` 
+9.```awk '{print $1,$2}' irregular_lines```
