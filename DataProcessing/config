@@ -1,0 +1,6 @@
+#User to run service as
+user apache
+
+#Group to run service as
+Group apache
+
