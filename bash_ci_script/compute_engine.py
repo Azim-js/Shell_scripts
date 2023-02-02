@@ -4,13 +4,14 @@ def GenerateConfig(context):
   """Generate configuration."""
 
   resources = []
-# [START use_basic_template]
+# [START use_template_with_variables]
   resources.append({
-      'name': 'gcp-template',
+      'name': 'gcp-' + context.env['deployment'],
       'type': 'compute.v1.instance',
       'properties': {
           'zone': 'us-central1-a',
-          'machineType': 'zones/us-central1-a/machineTypes/n1-standard-1',
+          'machineType': ".join(['zones/', context.properties['zone'],
+                                  '/machineTypes/n1-standard-1']),
           'disks': [{
               'deviceName': 'boot',
               'type': 'PERSISTENT',
@@ -25,6 +26,7 @@ def GenerateConfig(context):
               'network': 'global/networks/default'
           }]
       }
+
   })
-# [END use_basic_template]
+# [END use_template_with_variables]
   return {'resources': resources}
