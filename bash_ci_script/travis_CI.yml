@@ -1,0 +1,16 @@
+services:
+  - docker
+before_script:
+  - |
+    docker run -it -d \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      -e DOCKER_USERNAME=${DOCKER_USERNAME} \
+      -e DOCKER_PASSWORD=${DOCKER_PASSWORD} \
+      -e GITHUB_URL=${GITHUB_URL} \
+      --name MY-PIPELINE \
+      YOUR-DOCKER-REGISTRY/YOUR-CUSTOM-IMAGE
+script:
+  - docker exec MY-PIPELINE /stages/01_clone.sh
+  - docker exec MY-PIPELINE /stages/02_build.sh
+  - docker exec MY-PIPELINE /stages/03_test.sh
+  - docker exec MY-PIPELINE /stages/04_archive.sh
